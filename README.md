@@ -6,7 +6,7 @@ Manage multiple vehicles, track service history, monitor maintenance expenses, a
 
 ## 🌐 Live Demo
 
-[View Live Demo]()
+[View Live Demo](https://johnyisbackk.github.io/js-car-maintenance-log-lite/)
 
 ## 🖥️ Live Preview
 
