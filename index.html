@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- LUCIDE ICONS -->
+    <script
+      src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"
+      defer
+    ></script>
+
+    <!-- CHART.JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"
+      defer
+    ></script>
+    <script src="script.js" defer></script>
+    <title>Car Maintenance Log Lite</title>
+  </head>
+  <body>
+    <!-- ======================================================
+     APP LAYOUT
+====================================================== -->
+
+    <div class="app-layout">
+      <!-- ======================================================
+     SIDEBAR
+====================================================== -->
+
+      <aside class="sidebar">
+        <img src="images/sidebar-bg-image.jpg" alt="Sidebar background image" />
+
+        <div class="logo">
+          <i data-lucide="car"></i>
+          <h2>Car Maintenance Log <span>Lite</span></h2>
+        </div>
+
+        <div class="header-divider"></div>
+
+        <nav class="nav">
+          <a href="#dashboard" class="nav-link active">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
+
+          <a href="#vehicles" class="nav-link">
+            <i data-lucide="car-front"></i>
+            <span>Vehicles</span>
+          </a>
+
+          <a href="#maintenance" class="nav-link">
+            <i data-lucide="wrench"></i>
+            <span>Maintenance</span>
+          </a>
+
+          <a href="#expenses" class="nav-link">
+            <i data-lucide="wallet"></i>
+            <span>Expenses</span>
+          </a>
+
+          <a href="#settings" class="nav-link">
+            <i data-lucide="settings"></i>
+            <span>Settings</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- ======================================================
+     MAIN CONTENT
+====================================================== -->
+
+      <main class="main-content">
+        <!-- ======================================================
+     PAGE HEADER
+====================================================== -->
+
+        <section class="main-section" id="dashboard">
+          <div class="main-heading">
+            <div class="main-title">
+              <h1>Vehicles</h1>
+              <p>
+                Select a car to view its details, maintenance, expences and
+                service history.
+              </p>
+            </div>
+
+            <div class="main-search">
+              <div class="search-box">
+                <i data-lucide="search"></i>
+                <input
+                  type="text"
+                  id="searchInput"
+                  placeholder="Search vehicles, services or records..."
+                />
+              </div>
+
+              <button class="add-btn" id="addVehicleBtn" type="button">
+                <i data-lucide="plus"></i>
+                <span>Add Vehicle</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ======================================================
+     VEHICLE SELECTOR
+====================================================== -->
+
+          <section class="vehicle-selection-section" id="vehicles">
+            <div class="vehicle-cards">
+              <!-- VOLVO -->
+              <button
+                class="vehicle-card active"
+                type="button"
+                data-vehicle="volvo"
+                aria-pressed="true"
+              >
+                <img src="images/volvo.webp" alt="" class="vehicle-image" />
+
+                <div class="vehicle-card-overlay"></div>
+
+                <div class="vehicle-card-header">
+                  <img
+                    src="https://cdn.simpleicons.org/volvo/FFFFFF"
+                    alt=""
+                    class="vehicle-brand-logo"
+                  />
+
+                  <h3>Volvo</h3>
+                </div>
+
+                <span class="vehicle-selected-icon">
+                  <i data-lucide="check"></i>
+                </span>
+              </button>
+
+              <!-- RENAULT CLIO -->
+              <button
+                class="vehicle-card"
+                type="button"
+                data-vehicle="renault"
+                aria-pressed="false"
+              >
+                <img src="images/renault.webp" alt="" class="vehicle-image" />
+
+                <div class="vehicle-card-overlay"></div>
+
+                <div class="vehicle-card-header">
+                  <img
+                    src="https://cdn.simpleicons.org/renault/FFFFFF"
+                    alt=""
+                    class="vehicle-brand-logo"
+                  />
+
+                  <h3>Renault Clio</h3>
+                </div>
+
+                <span class="vehicle-selected-icon">
+                  <i data-lucide="check"></i>
+                </span>
+              </button>
+
+              <!-- SEAT IBIZA -->
+              <button
+                class="vehicle-card"
+                type="button"
+                data-vehicle="seat"
+                aria-pressed="false"
+              >
+                <img src="images/seat.webp" alt="" class="vehicle-image" />
+
+                <div class="vehicle-card-overlay"></div>
+
+                <div class="vehicle-card-header">
+                  <img
+                    src="https://cdn.simpleicons.org/seat/FFFFFF"
+                    alt=""
+                    class="vehicle-brand-logo"
+                  />
+
+                  <h3>Seat Ibiza</h3>
+                </div>
+
+                <span class="vehicle-selected-icon">
+                  <i data-lucide="check"></i>
+                </span>
+              </button>
+
+              <!-- SKODA ENYAQ -->
+              <button
+                class="vehicle-card"
+                type="button"
+                data-vehicle="skoda"
+                aria-pressed="false"
+              >
+                <img src="images/skoda.webp" alt="" class="vehicle-image" />
+
+                <div class="vehicle-card-overlay"></div>
+
+                <div class="vehicle-card-header">
+                  <img
+                    src="https://cdn.simpleicons.org/skoda/FFFFFF"
+                    alt=""
+                    class="vehicle-brand-logo"
+                  />
+
+                  <h3>Škoda Enyaq</h3>
+                </div>
+
+                <span class="vehicle-selected-icon">
+                  <i data-lucide="check"></i>
+                </span>
+              </button>
+            </div>
+          </section>
+
+          <!-- ======================================================
+     VEHICLE OVERVIEW
+====================================================== -->
+
+          <section class="vehicle-overview" id="vehicleOverview">
+            <div class="vehicle-overview-image">
+              <img
+                src="images/volvo.webp"
+                alt="Volvo XC60"
+                id="vehicleOverviewImage"
+              />
+            </div>
+
+            <div class="vehicle-overview-content">
+              <div class="vehicle-overview-header">
+                <img
+                  src="https://cdn.simpleicons.org/volvo/FFFFFF"
+                  alt="Volvo logo"
+                  class="vehicle-overview-logo"
+                  id="vehicleOverviewLogo"
+                />
+
+                <div class="vehicle-overview-title">
+                  <h2 id="vehicleOverviewBrand">Volvo</h2>
+                  <p id="vehicleOverviewName">XC60 B5 AWD Inscription</p>
+
+                  <div class="vehicle-tags">
+                    <span>
+                      <i data-lucide="car-front"></i>
+                      SUV
+                    </span>
+
+                    <span>
+                      <i data-lucide="fuel"></i>
+                      <span id="vehicleOverviewFuel">Diesel</span>
+                    </span>
+
+                    <span>
+                      <i data-lucide="settings-2"></i>
+                      AWD
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <span class="vehicle-active-badge">
+                <i data-lucide="check"></i>
+                Active Vehicle
+              </span>
+
+              <div class="vehicle-overview-details">
+                <div class="vehicle-detail">
+                  <i data-lucide="gauge"></i>
+                  <span>Mileage</span>
+                  <strong id="vehicleOverviewMileage">42,850 km</strong>
+                </div>
+
+                <div class="vehicle-detail">
+                  <i data-lucide="calendar-days"></i>
+                  <span>Year</span>
+                  <strong id="vehicleOverviewYear">2022</strong>
+                </div>
+
+                <div class="vehicle-detail">
+                  <i data-lucide="credit-card"></i>
+                  <span>Plate</span>
+                  <strong id="vehicleOverviewPlate">VXC 602</strong>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ======================================================
+     VEHICLE STATISTICS
+====================================================== -->
+
+          <section class="vehicle-stats-section">
+            <div class="vehicle-stats">
+              <div class="vehicle-stat">
+                <i data-lucide="wrench"></i>
+
+                <div>
+                  <p>Total Services</p>
+                  <span id="totalServicesValue">12</span>
+                </div>
+              </div>
+
+              <div class="vehicle-stat">
+                <i data-lucide="calendar-clock"></i>
+
+                <div>
+                  <p>Upcoming Tasks</p>
+                  <span id="upcomingTasksValue">2</span>
+                </div>
+              </div>
+
+              <div class="vehicle-stat">
+                <i data-lucide="wallet"></i>
+
+                <div>
+                  <p>This Month Cost</p>
+                  <span id="thisMonthCostValue">€329.00</span>
+                </div>
+              </div>
+
+              <div class="vehicle-stat">
+                <i data-lucide="gauge"></i>
+
+                <div>
+                  <p>Next Service</p>
+                  <span id="nextServiceValue">Jan 15, 2027</span>
+                  <span id="nextServiceType">Oil Change</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ======================================================
+     MAINTENANCE & TASKS
+====================================================== -->
+
+          <section class="maintenance-section" id="maintenance">
+            <div class="section-heading">
+              <div class="section-title">
+                <h2>Maintenance & Tasks</h2>
+              </div>
+
+              <button type="button" id="addServiceBtn">
+                <i data-lucide="plus"></i>
+                <span>Add Service</span>
+              </button>
+            </div>
+
+            <div class="maintenance-list" id="maintenanceList">
+              <!-- OIL CHANGE -->
+              <div class="maintenance-item">
+                <div class="maintenance-icon oil-icon">
+                  <i data-lucide="droplets"></i>
+                </div>
+
+                <div class="maintenance-info">
+                  <h3>Engine Oil Change</h3>
+                  <p>Oil & filter replacement</p>
+                </div>
+
+                <div class="maintenance-details">
+                  <span class="maintenance-status status-warning">
+                    <i data-lucide="alert-circle"></i>
+                    Due Soon
+                  </span>
+                  <span class="maintenance-date">In 2,500 km</span>
+                </div>
+
+                <button class="maintenance-action" type="button">
+                  <i data-lucide="chevron-right"></i>
+                </button>
+              </div>
+
+              <!-- BRAKE INSPECTION -->
+              <div class="maintenance-item">
+                <div class="maintenance-icon brake-icon">
+                  <i data-lucide="disc"></i>
+                </div>
+
+                <div class="maintenance-info">
+                  <h3>Brake Inspection</h3>
+                  <p>Brake pads & discs check</p>
+                </div>
+
+                <div class="maintenance-details">
+                  <span class="maintenance-status status-scheduled">
+                    <i data-lucide="calendar-clock"></i>
+                    Scheduled
+                  </span>
+                  <span class="maintenance-date">Nov 20, 2026</span>
+                </div>
+
+                <button class="maintenance-action" type="button">
+                  <i data-lucide="chevron-right"></i>
+                </button>
+              </div>
+
+              <!-- TIRE REPLACEMENT -->
+              <div class="maintenance-item">
+                <div class="maintenance-icon tire-icon">
+                  <i data-lucide="circle-dot"></i>
+                </div>
+
+                <div class="maintenance-info">
+                  <h3>Tire Replacement</h3>
+                  <p>Seasonal tire change</p>
+                </div>
+
+                <div class="maintenance-details">
+                  <span class="maintenance-status status-completed">
+                    <i data-lucide="check-circle-2"></i>
+                    Completed
+                  </span>
+                  <span class="maintenance-date">Oct 15, 2026</span>
+                </div>
+
+                <button class="maintenance-action" type="button">
+                  <i data-lucide="chevron-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="service-history-footer">
+              <button
+                class="view-all-history-btn"
+                id="viewAllHistoryBtn"
+                type="button"
+              >
+                <span>View All Records</span>
+                <i data-lucide="arrow-right"></i>
+              </button>
+            </div>
+          </section>
+
+          <!-- ======================================================
+     MAINTENANCE SPENDING
+====================================================== -->
+
+          <section class="maintenance-spending-section" id="expenses">
+            <div class="maintenance-spending-header">
+              <div class="maintenance-spending-title">
+                <i data-lucide="chart-column"></i>
+                <h3>Maintenance Spending</h3>
+              </div>
+
+              <select id="spendingSelect" aria-label="Select spending period">
+                <option value="6months">Last 6 Months</option>
+                <option value="12months">Last 12 Months</option>
+                <option value="all">All Time</option>
+              </select>
+            </div>
+
+            <div class="spending-summary">
+              <span>Total Spending</span>
+              <h2 id="totalSpending">€0.00</h2>
+            </div>
+
+            <div class="spending-chart">
+              <canvas id="maintenanceChart"></canvas>
+            </div>
+          </section>
+
+          <!-- ======================================================
+     MILEAGE PROGRESS
+====================================================== -->
+
+          <section class="mileage-section">
+            <div class="mileage-progress-header">
+              <i data-lucide="gauge"></i>
+
+              <div>
+                <h3>Mileage Progress</h3>
+                <p>Toward next service (50,000 km)</p>
+              </div>
+            </div>
+
+            <div class="mileage-info">
+              <div class="mileage-current">
+                <span>Current Mileage</span>
+                <strong id="currentMileage">42,850 km</strong>
+              </div>
+
+              <div class="mileage-next">
+                <span>Next Service</span>
+                <strong id="nextServiceMileage">45,000 km</strong>
+              </div>
+            </div>
+
+            <div
+              class="mileage-progress"
+              id="mileageProgress"
+              role="progressbar"
+              aria-label="Mileage progress toward next service"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="75"
+            >
+              <div class="mileage-progress-fill" id="mileageProgressFill"></div>
+            </div>
+
+            <div class="mileage-footer">
+              <span id="mileageProgressPercent">75% completed</span>
+              <span id="mileageRemaining">2,150 km remaining</span>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <!-- ======================================================
+     VEHICLE MODAL
+====================================================== -->
+
+    <dialog class="app-modal vehicle-modal" id="vehicleModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h2 id="vehicleModalTitle">Add Vehicle</h2>
+            <p>Enter your vehicle information.</p>
+          </div>
+
+          <button
+            class="modal-close-btn"
+            id="closeVehicleModalBtn"
+            type="button"
+            aria-label="Close vehicle modal"
+          >
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+
+        <form id="vehicleForm">
+          <input type="hidden" id="vehicleIdInput" />
+
+          <div class="form-group">
+            <label for="vehicleBrandInput">Brand</label>
+            <input
+              type="text"
+              id="vehicleBrandInput"
+              placeholder="e.g. Volvo"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="vehicleModelInput">Model</label>
+            <input
+              type="text"
+              id="vehicleModelInput"
+              placeholder="e.g. XC60"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="vehicleYearInput">Year</label>
+              <input
+                type="number"
+                id="vehicleYearInput"
+                min="1900"
+                max="2100"
+                placeholder="2022"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="vehicleMileageInput">Mileage (km)</label>
+              <input
+                type="number"
+                id="vehicleMileageInput"
+                min="0"
+                placeholder="42850"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="vehicleFuelInput">Fuel Type</label>
+            <select id="vehicleFuelInput" required>
+              <option value="diesel">Diesel</option>
+              <option value="petrol">Petrol</option>
+              <option value="hybrid">Hybrid</option>
+              <option value="electric">Electric</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="vehicleImageInput">Vehicle Image Path</label>
+            <input
+              type="text"
+              id="vehicleImageInput"
+              placeholder="images/default-car.webp"
+            />
+          </div>
+
+          <div class="modal-actions">
+            <button
+              type="button"
+              class="modal-cancel-btn"
+              id="cancelVehicleBtn"
+            >
+              Cancel
+            </button>
+
+            <button type="submit" class="modal-save-btn">
+              <i data-lucide="check"></i>
+              <span id="saveVehicleText">Save Vehicle</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- ======================================================
+     SERVICE MODAL
+====================================================== -->
+
+    <dialog class="app-modal service-modal" id="serviceModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h2 id="serviceModalTitle">Add Service</h2>
+            <p>Record a maintenance task or service.</p>
+          </div>
+
+          <button
+            class="modal-close-btn"
+            id="closeServiceModalBtn"
+            type="button"
+            aria-label="Close service modal"
+          >
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+
+        <form id="serviceForm">
+          <input type="hidden" id="serviceIdInput" />
+
+          <div class="form-group">
+            <label for="serviceNameInput">Service Name</label>
+            <input
+              type="text"
+              id="serviceNameInput"
+              placeholder="e.g. Engine Oil Change"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="serviceDescriptionInput">Description</label>
+            <textarea
+              id="serviceDescriptionInput"
+              placeholder="Additional service details..."
+              rows="3"
+            ></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="serviceDateInput">Service Date</label>
+              <input type="date" id="serviceDateInput" />
+            </div>
+
+            <div class="form-group">
+              <label for="serviceCostInput">Cost (€)</label>
+              <input
+                type="number"
+                id="serviceCostInput"
+                min="0"
+                step="0.01"
+                placeholder="120.00"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="serviceMileageInput">Mileage (km)</label>
+              <input
+                type="number"
+                id="serviceMileageInput"
+                min="0"
+                placeholder="45000"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="serviceStatusInput">Status</label>
+              <select id="serviceStatusInput" required>
+                <option value="scheduled">Scheduled</option>
+                <option value="due-soon">Due Soon</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button
+              type="button"
+              class="modal-cancel-btn"
+              id="cancelServiceBtn"
+            >
+              Cancel
+            </button>
+
+            <button type="submit" class="modal-save-btn">
+              <i data-lucide="check"></i>
+              <span id="saveServiceText">Save Service</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+  </body>
+</html>
